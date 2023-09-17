@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Application</title>
+
+    <style>
+        .categories-container {
+            height: 100%;
+            width: 100%;
+            background-color: pink;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            flex-shrink:2;
+        }
+
+        .category {
+            height: 100px;
+            width: 100px;
+            background-color: red;
+        }
+
+        .products-container {
+            height: 100%;
+            width: 100%;
+            background-color: blue;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .product {
+            height: 150px;
+            width: 100px;
+            background-color: green;
+        }
+
+        .product-container {
+            background-color: blueviolet;
+            height: 200px;
+            width: 100%;
+        }
+
+        .single-product {
+            background-color: yellow;
+        }
+
+         
+    </style>
+</head>
+
+<body>
+    <div class="categories-container">
+    </div>
+    <div class="products-container">
+        
+    </div>
+    
+<div class="product-container"></div>
+
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/fetchCategories.js"></script>
+    <script type="module" src="js/displayCategories.js"></script>
+    <script type="module" src="js/fetchProducts.js"></script>
+    <script type="module" src="js/displayProducts.js"></script>
+    <script type="module" src="js/singleProduct.js"></script>
+</body>
+
+</html>
