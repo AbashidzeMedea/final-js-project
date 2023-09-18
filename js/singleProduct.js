@@ -1,3 +1,4 @@
+
 export async function fetchSingleProduct(productId) {
   try {
     const apiUrl = `https://dummyjson.com/products/${productId}`;
@@ -16,40 +17,65 @@ export async function fetchSingleProduct(productId) {
   }
 }
 
-export function displaySingleProduct(product) {
-  if (!product) {
-    console.error("Product data is empty.");
+export function displaySingleProduct() {
+  const productData = window.productData; 
+
+  if (!productData) {
+    console.error('Product data is empty.');
     return;
   }
 
-  const productContainer = document.querySelector(".product-container");
-  productContainer.innerHTML = "";
-  const productDivs = document.getElementsByClassName("product");
+  const productContainer = document.querySelector(".product-details-container");
+  productContainer.innerHTML = '';
 
-  for (const div of productDivs) {
-    div.style.height = "50px";
-  }
-
-  const singleProductDiv = createProductElement(product);
+  const singleProductDiv = createProductElement(productData);
   productContainer.appendChild(singleProductDiv);
+
+  displayProductImages(productData.images, productContainer);
 }
+
+
+function displayProductImages(imageUrls, container) {
+  const imageContainer = document.createElement("div");
+
+  imageUrls.forEach((imageUrl) => {
+    const imageElement = createElement("img");
+    imageElement.src = imageUrl;
+    imageContainer.appendChild(imageElement);
+  });
+
+  container.appendChild(imageContainer);
+}
+
 
 function createProductElement(product) {
   const singleProductDiv = document.createElement("div");
   singleProductDiv.classList.add("single-product");
 
   const productTitle = createElement("h2", product.title);
-  const productDescription = createElement(
-    "p",
-    `Description: ${product.description}`
-  );
+  const productDescription = createElement("p", `Description: ${product.description}`);
   const productPrice = createElement("p", `Price: $${product.price}`);
+  const discountPercentage = createElement("p", `discount percentage: ${product.discountPercentage}`);
+  const productRating = createElement("p", `Rating: ${product.rating}`);
+  const productStock = createElement("p", `stock: ${product.stock}`);
+  const productBrand = createElement("p", `Brand: ${product.brand}`);
+  const productCategory = createElement("p", `Category: ${product.category}`);
+  const productThumbnail = createElement('img');
+
 
   singleProductDiv.appendChild(productTitle);
   singleProductDiv.appendChild(productDescription);
   singleProductDiv.appendChild(productPrice);
+  singleProductDiv.appendChild(discountPercentage);
+  singleProductDiv.appendChild(productRating);
+  singleProductDiv.appendChild(productStock);
+  singleProductDiv.appendChild(productBrand);
+  singleProductDiv.appendChild(productCategory);
+  singleProductDiv.appendChild(productThumbnail);
+
 
   return singleProductDiv;
+
 }
 
 function createElement(elementType, textContent) {
