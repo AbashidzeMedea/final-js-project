@@ -3,6 +3,7 @@ import { fetchProductsForCategory } from "./fetchProducts.js";
 import { displayCategories } from "./displayCategories.js";
 import { displayProducts } from "./displayProducts.js";
 
+
 const productsContainer = document.querySelector(".products-container");
 
 async function main() {

@@ -17,22 +17,18 @@ export async function fetchSingleProduct(productId) {
   }
 }
 
-export function displaySingleProduct() {
-  const productData = window.productData; 
-
-  if (!productData) {
+export function displaySingleProduct(fullProduct, productDetailsContainer) {
+  if (!fullProduct) {
     console.error('Product data is empty.');
     return;
   }
 
-  const productContainer = document.querySelector(".product-details-container");
-  productContainer.innerHTML = '';
-
-  const singleProductDiv = createProductElement(productData);
-  productContainer.appendChild(singleProductDiv);
-
-  displayProductImages(productData.images, productContainer);
+  const singleProductDiv = createProductElement(fullProduct);
+  productDetailsContainer.innerHTML = ''; 
+  productDetailsContainer.appendChild(singleProductDiv);
+  displayProductImages(fullProduct.images, productDetailsContainer);
 }
+
 
 
 function displayProductImages(imageUrls, container) {

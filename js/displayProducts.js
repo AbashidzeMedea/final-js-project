@@ -1,5 +1,5 @@
 import { fetchSingleProduct } from './singleProduct.js';
-
+import { displaySingleProduct } from './singleProduct.js';
 
 export function displayProducts(products) {
   const productsContainer = document.querySelector(`.products-container`);
@@ -13,7 +13,10 @@ export function displayProducts(products) {
         const productDetailsWindow = window.open('productDetails.html', '_blank');
 
         if (productDetailsWindow) {
-          productDetailsWindow.productData = fullProduct;
+          productDetailsWindow.addEventListener('load', () => {
+            const productDetailsContainer = productDetailsWindow.document.querySelector('.product-details-container');
+            displaySingleProduct(fullProduct, productDetailsContainer);
+          });
         } else {
           console.error('Failed to open a new window.');
         }
@@ -23,9 +26,11 @@ export function displayProducts(products) {
     });
 
     productsContainer.appendChild(productDiv);
-    const categoriesContainer = document.querySelector('.categories-container');
-   categoriesContainer.appendChild(productsContainer);
-  });}
+    document.body.appendChild(productsContainer);
+  });
+}
+
+
 
 
 
@@ -35,10 +40,16 @@ function createProductElement(product) {
 
   const productTitle = createElement('h2', product.title);
   const productPrice = createElement('p', `Price: $${product.price}`);
+  const productThumbnail = document.createElement("img");
+  productThumbnail.src = product.thumbnail;
+  productThumbnail.classList.add("product-thumbnail");
+
+
  
 
   productDiv.appendChild(productTitle);
   productDiv.appendChild(productPrice);
+  productDiv.appendChild(productThumbnail);
   
 
 

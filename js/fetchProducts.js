@@ -17,5 +17,6 @@ export async function fetchProductsForCategory(category) {
     return [];
   }
 }
-
+export let products = []; 
+export let originalProducts = [...products];
   

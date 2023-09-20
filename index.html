@@ -15,6 +15,7 @@
             gap: 20px;
             justify-content: space-around;
             align-items: center;
+            margin-bottom: 10px;
         }
 
         .category {
@@ -41,6 +42,7 @@
         .product {
             width: 200px;
             background-color: green;
+            border: 1px solid black;
         }
 
         .product-container {
@@ -53,6 +55,15 @@
             background-color: yellow;
         }
 
+        .product-thumbnail {
+            width: 200px;
+            height: 200px;
+        }
+        .product-details-container {
+        background-color: aqua;
+        height:400px;
+      }
+
          
     </style>
 </head>
@@ -60,9 +71,19 @@
 <body>
     <div class="categories-container">
     </div>
+
+    <div id="button-div">
+     <button id="ascendingButton" class="ascending">up</button>
+    <button id="descendingButton">down</button>
+    <button id="resetButton">reset</button>
+    </div>
+  
     <div class="products-container">
         
     </div>
+    
+
+    
     
 
 
@@ -72,6 +93,8 @@
     <script type="module" src="js/fetchProducts.js"></script>
     <script type="module" src="js/displayProducts.js"></script>
     <script type="module" src="js/singleProduct.js"></script>
+    <script type="module" src="js/sort.js"></script>
+    <script type="module" src="js/sortButtons.js"></script>
 </body>
 
 </html>
