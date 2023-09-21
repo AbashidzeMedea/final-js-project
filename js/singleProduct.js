@@ -1,4 +1,3 @@
-
 export async function fetchSingleProduct(productId) {
   try {
     const apiUrl = `https://dummyjson.com/products/${productId}`;
@@ -19,17 +18,15 @@ export async function fetchSingleProduct(productId) {
 
 export function displaySingleProduct(fullProduct, productDetailsContainer) {
   if (!fullProduct) {
-    console.error('Product data is empty.');
+    console.error("Product data is empty.");
     return;
   }
 
   const singleProductDiv = createProductElement(fullProduct);
-  productDetailsContainer.innerHTML = ''; 
+  productDetailsContainer.innerHTML = "";
   productDetailsContainer.appendChild(singleProductDiv);
   displayProductImages(fullProduct.images, productDetailsContainer);
 }
-
-
 
 function displayProductImages(imageUrls, container) {
   const imageContainer = document.createElement("div");
@@ -43,21 +40,25 @@ function displayProductImages(imageUrls, container) {
   container.appendChild(imageContainer);
 }
 
-
 function createProductElement(product) {
   const singleProductDiv = document.createElement("div");
   singleProductDiv.classList.add("single-product");
 
   const productTitle = createElement("h2", product.title);
-  const productDescription = createElement("p", `Description: ${product.description}`);
+  const productDescription = createElement(
+    "p",
+    `Description: ${product.description}`
+  );
   const productPrice = createElement("p", `Price: $${product.price}`);
-  const discountPercentage = createElement("p", `discount percentage: ${product.discountPercentage}`);
+  const discountPercentage = createElement(
+    "p",
+    `discount percentage: ${product.discountPercentage}`
+  );
   const productRating = createElement("p", `Rating: ${product.rating}`);
   const productStock = createElement("p", `stock: ${product.stock}`);
   const productBrand = createElement("p", `Brand: ${product.brand}`);
   const productCategory = createElement("p", `Category: ${product.category}`);
-  const productThumbnail = createElement('img');
-
+  const productThumbnail = createElement("img");
 
   singleProductDiv.appendChild(productTitle);
   singleProductDiv.appendChild(productDescription);
@@ -69,9 +70,7 @@ function createProductElement(product) {
   singleProductDiv.appendChild(productCategory);
   singleProductDiv.appendChild(productThumbnail);
 
-
   return singleProductDiv;
-
 }
 
 function createElement(elementType, textContent) {

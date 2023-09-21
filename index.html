@@ -8,7 +8,7 @@
 
     <style>
         .categories-container {
-          
+
             background-color: pink;
             display: flex;
             flex-wrap: wrap;
@@ -16,23 +16,25 @@
             justify-content: space-around;
             align-items: center;
             margin-bottom: 10px;
+            display: none;
+
         }
 
         .category {
             width: 100px;
             height: 50px;
-            background-color: red;
+            background-color: rgb(	240,128,128);
             display: flex;
             text-align: center;
             align-items: center;
             border: 1px black solid;
             border-radius: 20px;
-            
+
         }
 
         .products-container {
             width: 100%;
-            background-color: blue;
+            background-color: 	rgb(189,183,107);
             display: flex;
             justify-content: space-around;
             flex-wrap: wrap;
@@ -41,52 +43,81 @@
 
         .product {
             width: 200px;
-            background-color: green;
+            background-color: rgb(128,128,0);
             border: 1px solid black;
         }
 
         .product-container {
             background-color: blueviolet;
-            
+
             width: 100%;
         }
 
-        .single-product {
-            background-color: yellow;
-        }
+        
 
         .product-thumbnail {
             width: 200px;
             height: 200px;
         }
-        .product-details-container {
-        background-color: aqua;
-        height:400px;
-      }
 
-         
+        .product-details-container {
+            background-color: rgb(135,206,250);
+            height: 400px;
+            
+        }
+
+        .button-div {
+            display: none;
+            margin-bottom: 20px;
+            
+        }
+
+        #loginFormContainer{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            background-color: rgb(240,128,128)
+        }
+
+        #loginForm {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .submit-button {
+            justify-self: center;
+           align-self: center;
+
+        }
+       
     </style>
 </head>
 
 <body>
-    <div class="categories-container">
+    <div id="loginFormContainer">
+        <h1>Log in</h1>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+            <button class="submit-button" type="submit">Log in</button>
+        </form>
     </div>
 
-    <div id="button-div">
-     <button id="ascendingButton" class="ascending">up</button>
-    <button id="descendingButton">down</button>
-    <button id="resetButton">reset</button>
-    </div>
-  
-    <div class="products-container">
-        
-    </div>
+    
+        <div class="categories-container"></div>
+        <div class="button-div">
+            <p>Sort  products by price</p>
+            <button id="ascendingButton" class="ascending">asc</button>
+            <button id="descendingButton">desc</button>
+            <button id="resetButton">reset</button>
+        </div>
+        <div class="products-container"></div>
+   
     
 
-    
-    
-
-
+    <script type="module" src="js/login.js"></script>
     <script type="module" src="js/main.js"></script>
     <script type="module" src="js/fetchCategories.js"></script>
     <script type="module" src="js/displayCategories.js"></script>

@@ -4,6 +4,7 @@ import { displayCategories } from "./displayCategories.js";
 import { displayProducts } from "./displayProducts.js";
 
 
+
 const productsContainer = document.querySelector(".products-container");
 
 async function main() {
@@ -17,17 +18,13 @@ async function main() {
 
 async function onCategoryClick(category) {
   try {
-    const products = await fetchProductsForCategory(category);
+    const categoryProducts = await fetchProductsForCategory(category); 
 
-    if (products.length > 0) {
-      const categoryElements = document.getElementsByClassName("category");
-
-      for (const element of categoryElements) {
-        element.style.height = "50px";
-      }
+    if (categoryProducts.length > 0) {
+      
       productsContainer.innerHTML = "";
 
-      displayProducts(products);
+      displayProducts(categoryProducts); 
     } else {
       console.log(`No products available for category: ${category}`);
     }

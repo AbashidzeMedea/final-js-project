@@ -3,6 +3,7 @@ import { displaySingleProduct } from './singleProduct.js';
 
 export function displayProducts(products) {
   const productsContainer = document.querySelector(`.products-container`);
+  productsContainer.innerHTML = '';
 
   products.forEach((product) => {
     const productDiv = createProductElement(product);
@@ -45,12 +46,12 @@ function createProductElement(product) {
   productThumbnail.classList.add("product-thumbnail");
 
 
- 
+
 
   productDiv.appendChild(productTitle);
   productDiv.appendChild(productPrice);
   productDiv.appendChild(productThumbnail);
-  
+
 
 
   return productDiv;

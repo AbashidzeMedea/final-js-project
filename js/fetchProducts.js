@@ -1,3 +1,4 @@
+let products = []; 
 export async function fetchProductsForCategory(category) {
   try {
     const apiUrl = `https://dummyjson.com/products/category/${category}`;
@@ -6,7 +7,7 @@ export async function fetchProductsForCategory(category) {
     
     if (Array.isArray(responseData.products) && responseData.products.length > 0) {
       
-      const products = responseData.products;
+      products = responseData.products;
       return products;
     } else {
       console.log(`No products available for category: ${category}`);
@@ -17,6 +18,6 @@ export async function fetchProductsForCategory(category) {
     return [];
   }
 }
-export let products = []; 
-export let originalProducts = [...products];
+
+export { products };
   
